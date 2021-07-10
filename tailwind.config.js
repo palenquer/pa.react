@@ -1,14 +1,21 @@
 module.exports = {
-  purge: ['./src/pages/**/*.{js,ts,jsx,tsx}', './src/components/**/*.{js,ts,jsx,tsx}'],
+  purge: [
+    "./src/pages/**/*.{js,ts,jsx,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx}",
+  ],
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
       roboto: ["Roboto", "sans-serif"],
     },
+
     extend: {},
   },
   variants: {
-    extend: {},
+    extend: {
+      borderWidth: ["hover", "focus"],
+      fontWeight: ["hover", "focus"],
+    },
   },
   plugins: [],
-}
+};
