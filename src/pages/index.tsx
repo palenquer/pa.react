@@ -15,24 +15,23 @@ export default function Home() {
             <span className="text-xl">👋 Hey, welcome</span>
 
             <h1 className="text-5xl font-bold mt-4">
-              News about the <span className="text-blue-300">React</span>{" "}
+              News about the <span className="text-blue-300">React </span>
               world.
             </h1>
 
             <p className="text-lg mt-8">
-              Get access to all publications for <br />
-              <span className="text-blue-300 font-bold">$4.90 month</span>
+              Receive emails whenever a new post is realized.
             </p>
 
             <button
               type="button"
-              className="bg-yellow-400 text-gray-900 w-40 rounded-full h-12 font-bold transition hover:bg-yellow-500 mt-4 hover:text-white"
+              className="bg-yellow-400 text-gray-900 w-40 rounded-full h-12 font-bold transition mt-4 hover:text-white"
             >
-              Subscribe now
+              Sign in now
             </button>
           </div>
 
-          <SiReact className="w-52 h-52 md:w-72 md:h-72 text-blue-300" />
+          <SiReact className="w-52 h-52 md:w-80 md:h-80 text-blue-300" />
         </div>
       </main>
     </>
