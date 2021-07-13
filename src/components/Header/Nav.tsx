@@ -9,13 +9,13 @@ export function Nav() {
         </a>
       </Link>
 
-      <Link href="/">
+      <Link href="/posts">
         <a className="text-gray-200 hover:text-white w-full md:w-20 h-20 flex justify-center items-center hover:border-b-2 border-yellow-400 hover:font-bold">
-          News
+          Posts
         </a>
       </Link>
 
-      <Link href="/">
+      <Link href="/about">
         <a className="text-gray-200 hover:text-white w-full md:w-20 h-20 flex justify-center items-center hover:border-b-2 border-yellow-400 hover:font-bold">
           About
         </a>

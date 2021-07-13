@@ -12,8 +12,8 @@ export function Header({ toggleIsOn }: HeaderProps) {
     <header className="h-20 flex z-50 sticky top-0 bg-gray-900 border-b-2 border-gray-800">
       <div className="container mx-auto flex justify-between text-white px-4 items-center xl:px-60">
         <Link href="/">
-          <a className="text-4xl font-bold">
-            pa<span className="text-blue-300">.</span>react
+          <a className="text-4xl font-bold group">
+            pa<span className="text-blue-300 group-hover:text-yellow-400">.</span>react
           </a>
         </Link>
 
