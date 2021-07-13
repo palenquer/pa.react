@@ -107,21 +107,34 @@ export default function about() {
 
           <div className="w-full h-0.5 md:h-full md:w-0.5 bg-gray-700" />
 
-          <section className="flex justify-center flex-col">
+          <section className="flex justify-center flex-col items-center">
             <Image
               className="mt-8 md:mt-0 rounded-full"
-              width={400}
-              height={400}
+              width={300}
+              height={300}
               src={profilePic}
               alt="Foto de Perfil"
               layout="intrinsic"
               placeholder="blur"
               priority
             />
-            <div className="text-center mt-4">
-              <h3>Age: <span className="text-sm text-gray-300">24</span></h3>
-              <h3>Location: <span className="text-sm text-gray-300">Brazil, Rio de Janeiro, RJ</span></h3>
-              <h3>Email: <span className="text-sm text-gray-300">pauloalenquer@gmail.com</span></h3>
+            
+            <div className="mt-4 flex flex-col">
+              <h3>
+                Age:<span className="text-sm text-gray-300 ml-2">24</span>
+              </h3>
+              <h3>
+                Location:
+                <span className="text-sm text-gray-300 ml-2">
+                  Brazil, Rio de Janeiro, RJ
+                </span>
+              </h3>
+              <h3>
+                Email:
+                <span className="text-sm text-gray-300 ml-2">
+                  pauloalenquer@gmail.com
+                </span>
+              </h3>
             </div>
           </section>
         </div>

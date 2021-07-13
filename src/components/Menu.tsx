@@ -4,8 +4,8 @@ import { SignInButton } from "../components/Header/SignInButton";
 
 export function Menu() {
   return (
-    <div className="bg-gray-800 sticky top-0 flex justify-center items-center flex-col z-50">
-      <div className="w-full bg-gray-900 h-20 flex justify-center items-center">
+    <div className="bg-gray-900 sticky top-0 flex justify-center items-center flex-col z-20 w-screen border-b-2 border-gray-700">
+      <div className="w-full flex justify-center items-center h-20">
         <SignInButton />
       </div>
 
