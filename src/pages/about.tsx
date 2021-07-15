@@ -118,7 +118,7 @@ export default function about() {
               placeholder="blur"
               priority
             />
-            
+
             <div className="mt-4 flex flex-col">
               <h3>
                 Age:<span className="text-sm text-gray-300 ml-2">24</span>
