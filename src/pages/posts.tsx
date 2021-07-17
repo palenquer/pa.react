@@ -47,7 +47,7 @@ export default function posts({ posts }: PostsProps) {
                       <div className="flex items-center">
                         {post.tag_list.map((tag) => {
                           return (
-                            <span className="text-gray-400 mr-1">#{tag}</span>
+                            <span key={Math.random()} className="text-gray-400 mr-1">#{tag}</span>
                           );
                         })}
                         <div className="ml-2 flex items-center">
