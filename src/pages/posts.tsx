@@ -28,7 +28,7 @@ export default function posts({ posts }: PostsProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="container mx-auto flex flex-grow items-center justify-center flex-col p-4 xl:px-60">
+      <main className="container mx-auto flex flex-grow items-center justify-center flex-col p-4 xl:px-60 gap-4">
         {session ? (
           posts.map((post) => {
             return (
