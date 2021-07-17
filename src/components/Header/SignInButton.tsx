@@ -5,8 +5,6 @@ import { signIn, signOut, useSession } from "next-auth/client";
 export function SignInButton() {
   const [session] = useSession();
 
-  console.log(session);
-
   return session ? (
     <button className="flex items-center justify-between w-auto px-4 gap-2 rounded-full border-2 border-green-400 h-10 transition hover:bg-green-400 font-bold text-white group"
     onClick={() => signOut()}>

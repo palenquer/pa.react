@@ -1,4 +1,9 @@
 import React from "react";
+import { GetStaticProps } from "next";
+import Link from "next/link";
+import Head from "next/head";
+import Image from "next/image";
+import profilePic from "../assets/foto_perfil.jpg";
 import {
   SiLinkedin,
   SiJavascript,
@@ -9,14 +14,17 @@ import {
   SiGit,
   SiElixir,
   SiVueDotJs,
+  SiGithub,
 } from "react-icons/si";
-import { FaGithub } from "react-icons/fa";
-import Image from "next/image";
-import profilePic from "../assets/foto_perfil.jpg";
-import Link from "next/link";
-import Head from "next/head";
 
-export default function about() {
+interface aboutProps {
+  profile: {
+    name: string;
+    location: string;
+  };
+}
+
+export default function about({ profile }: aboutProps) {
   return (
     <>
       <Head>
@@ -29,7 +37,7 @@ export default function about() {
           <section className="max-w-xs lg:max-w-sm md:mt-0 flex flex-col justify-center items-center text-center md:text-left">
             <div className="mb-4 w-full">
               <h2>Hello, I'm</h2>
-              <h1 className="text-5xl font-bold">Paulo Alenquer</h1>
+              <h1 className="text-5xl font-bold">{profile.name}</h1>
             </div>
 
             <h1 className="text-3xl">
@@ -98,7 +106,7 @@ export default function about() {
 
                 <Link href="https://github.com/palenquer">
                   <a className="hover:text-gray-400">
-                    <FaGithub className="w-10 h-10" />
+                    <SiGithub className="w-10 h-10" />
                   </a>
                 </Link>
               </div>
@@ -108,16 +116,17 @@ export default function about() {
           <div className="w-full h-0.5 md:h-full md:w-0.5 bg-gray-700" />
 
           <section className="flex justify-center flex-col items-center">
-            <Image
-              className="mt-8 md:mt-0 rounded-full"
-              width={300}
-              height={300}
-              src={profilePic}
-              alt="Foto de Perfil"
-              layout="intrinsic"
-              placeholder="blur"
-              priority
-            />
+            <div className="relative border-4 border-gray-700 rounded-full h-72 w-72">
+              <Image
+                className="mt-8 md:mt-0 rounded-full absolute"
+                src={profilePic}
+                alt="Foto de Perfil"
+                layout="fill"
+                placeholder="blur"
+                priority
+                quality={100}
+              />
+            </div>
 
             <div className="mt-4 flex flex-col">
               <h3>
@@ -126,7 +135,7 @@ export default function about() {
               <h3>
                 Location:
                 <span className="text-sm text-gray-300 ml-2">
-                  Brazil, Rio de Janeiro, RJ
+                  {profile.location}
                 </span>
               </h3>
               <h3>
@@ -142,3 +151,14 @@ export default function about() {
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await fetch("https://api.github.com/users/palenquer");
+  const profile = await res.json();
+
+  return {
+    props: {
+      profile,
+    },
+  };
+};

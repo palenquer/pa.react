@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { SiReact } from "react-icons/si";
+import { signIn } from "next-auth/client";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
             <button
               type="button"
               className="bg-yellow-400 text-gray-900 w-40 rounded-full h-12 font-bold transition mt-4 hover:text-white hover:bg-yellow-500"
+              onClick={() =>  signIn('github')}
             >
               Sign in now
             </button>
