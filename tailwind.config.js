@@ -15,6 +15,7 @@ module.exports = {
     extend: {
       borderWidth: ["hover", "focus"],
       fontWeight: ["hover", "focus"],
+      brightness: ['hover', 'focus'],
     },
   },
   plugins: [],

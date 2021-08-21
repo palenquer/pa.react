@@ -1,8 +1,17 @@
 import Head from "next/head";
+import { GetStaticProps } from "next";
 import { SiReact } from "react-icons/si";
-import { signIn } from "next-auth/client";
+import { stripe } from "../services/stripe";
+import SubscribeButton from "../components/SubscribeButton";
 
-export default function Home() {
+interface HomeProps {
+  product: {
+    priceId: string;
+    amount: number;
+  };
+}
+
+export default function Home({ product }: HomeProps) {
   return (
     <>
       <Head>
@@ -20,17 +29,12 @@ export default function Home() {
               world.
             </h1>
 
-            <p className="text-lg mt-4">
-              Receive emails whenever a new post is realized.
+            <p className="text-2xl mt-8 font-bold">
+              Get access to all the publications
+              <span className="text-blue-300"> for {product.amount} month</span>
             </p>
 
-            <button
-              type="button"
-              className="bg-yellow-400 text-gray-900 w-40 rounded-full h-12 font-bold transition mt-4 hover:text-white hover:bg-yellow-500"
-              onClick={() =>  signIn('github')}
-            >
-              Sign in now
-            </button>
+            <SubscribeButton priceId={product.priceId} />
           </div>
 
           <SiReact className="w-52 h-52 md:w-80 md:h-80 text-blue-300" />
@@ -39,3 +43,22 @@ export default function Home() {
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const price = await stripe.prices.retrieve("price_1J88HpIRs38hqTB5bESlo1xj");
+
+  const product = {
+    priceId: price.id,
+
+    amount: new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(price.unit_amount / 100),
+  };
+
+  return {
+    props: {
+      product,
+    }
+  };
+};
