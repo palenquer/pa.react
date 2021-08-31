@@ -12,6 +12,9 @@ export default NextAuth({
       scope: "read:user, user:email",
     }),
   ],
+  jwt: {
+    signingKey: process.env.JWT_SIGNING_PRIVATE_KEY,
+  },
   callbacks: {
     async signIn(user, account, profile) {
       const { email } = user;
